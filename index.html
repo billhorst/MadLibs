@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="madLibs">
+<head>
+	<title>Project MadLibs</title>
+	<script src="angular.js"></script>
+	<script src="app.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="mlCtrl">
+
+<h1>MadLibs!</h1>
+<h2>Fill in the blanks and then click the buttons to read your stories!</h2>
+	<fill-in-words ng-show="active.fillingInWords"></fill-in-words>
+	<br ng-if="active.fillingInWords" />
+	<mad-libs-story ng-if="active.actionStory">
+		<h3>There was a robot named {{name}}. It was {{emotion}}. It liked to {{verb}}.</h3>	
+	</mad-libs-story>
+	<mad-libs-story ng-if="active.horrorStory">
+		<h3>There was a killer robot named {{name}}. It was {{emotion}}. It killed {{animal}}.</h3>
+	</mad-libs-story>
+	<mad-libs-story ng-if="active.sadStory">
+		<h3>There was a sad robot named {{name}}. It's pet {{animal}} just got eaten by another {{animal}}.</h3>
+	</mad-libs-story>
+	<button ng-click="showHorror()">Click to show the horror story</button>
+	<button ng-click="showAction()">Click to show the action story</button>
+	<button ng-click="showSad()">Click to show the sad story</button>
+</body>
+</html>
