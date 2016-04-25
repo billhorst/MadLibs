@@ -1,6 +1,11 @@
 <div>
-	<input type="text" ng-model="name" placeholder="Name">
-	<input type="text" ng-model="emotion" placeholder="Emotion">
-	<input type="text" ng-model="verb" placeholder="Verb">
-	<input type="text" ng-model="animal" placeholder="Animal">
+	<form name="madLibsForm">
+		<input type="text" ng-model="name" placeholder="Name" required>
+		<input type="text" ng-model="emotion" placeholder="Emotion" required>
+		<input type="text" ng-model="verb" placeholder="Verb" required>
+		<input type="text" ng-model="animal" placeholder="Animal" required>
+	</form>
+	<div class="errorMessage">
+		<p ng-if="formComplete && madLibsForm.$error.required">Fill every field out!</p>
+	</div>
 </div>
