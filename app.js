@@ -48,6 +48,13 @@ app.controller('mlCtrl', function($scope) {
 			$scope.active.fillingInWords = true;
 		}
 
+		$scope.startNewMadLibs = function() {
+			$scope.word = {};
+			$scope.active = {};
+			$scope.formComplete = false;
+			$scope.active.fillingInWords = true;
+		}
+
 		// $scope.editWordListShowing = function() {
 		// 	$scope.active.horrorStory = true;
 		// 	$scope.active.fillingInWords = true;
