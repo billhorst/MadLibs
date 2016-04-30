@@ -1,9 +1,15 @@
 <div>
-	<form name="madLibsForm">
+	<form name="madLibsForm" novalidate>
+		<!-- <input type="radio" name="gender" ng-model="gender" value="male"> Male<br />
+		<input type="radio" name="gender" ng-model="gender" value="female"> Female<br /> -->
+		<button ng-click="setGenderMale()">Male</button>
+		<button ng-click="setGenderFemale()">Female</button>
+		<h3>Hero is {{gender.gender}}</h3><br />
 		<input type="text" ng-model="word.properName" placeholder="Proper Name" required>
 		<input type="text" ng-model="word.emotion" placeholder="Emotion" required>
 		<input type="text" ng-model="word.verb" placeholder="Verb" required>
 		<input type="text" ng-model="word.animal" placeholder="Animal" required>
+		<input type="text" ng-model="word.animal2" placeholder="Another Animal" required>
 	</form>
 	<div class="errorMessage">
 		<p ng-if="formComplete && madLibsForm.$error.required">Fill every field out!</p>
