@@ -1,4 +1,4 @@
-var app = angular.module('madLibs', []);
+var app = angular.module('plotGenerator', []);
 
 app.controller('mlCtrl', function($scope) {
 	$scope.gender = {};
@@ -18,7 +18,7 @@ app.controller('mlCtrl', function($scope) {
 			// $scope.active.fillingInWords = false;
 			// $scope.active.actionStory = false;
 			// $scope.active.sadStory = false;
-			if($scope.madLibsForm.$valid && $scope.genderChosen) {
+			if($scope.plotGeneratorForm.$valid && $scope.genderChosen) {
 				$scope.active = {};
 				$scope.active.horrorStory = true;
 			}
@@ -29,7 +29,7 @@ app.controller('mlCtrl', function($scope) {
 			// $scope.active.fillingInWords = false;
 			// $scope.active.horrorStory = false;
 			// $scope.active.sadStory = false;
-			if($scope.madLibsForm.$valid && $scope.genderChosen) {
+			if($scope.plotGeneratorForm.$valid && $scope.genderChosen) {
 				$scope.active = {};
 				$scope.active.actionStory = true;
 			}
@@ -40,7 +40,7 @@ app.controller('mlCtrl', function($scope) {
 			// $scope.active.fillingInWords = false;
 			// $scope.active.horrorStory = false;
 			// $scope.active.actionStory = false;
-			if($scope.madLibsForm.$valid && $scope.genderChosen) {
+			if($scope.plotGeneratorForm.$valid && $scope.genderChosen) {
 				$scope.active = {};
 				$scope.active.sadStory = true;
 			}
@@ -51,7 +51,7 @@ app.controller('mlCtrl', function($scope) {
 			$scope.active.fillingInWords = true;
 		}
 
-		$scope.startNewMadLibs = function() {
+		$scope.startNewPlotGenerator = function() {
 			$scope.word = {};
 			$scope.active = {};
 			$scope.formComplete = false;
@@ -115,11 +115,11 @@ app.controller('mlCtrl', function($scope) {
 
 	})
 
-.directive('madLibsStory', function() {
+.directive('plotGeneratorStory', function() {
 	return {
 		restrict: 'E',
 		transclude: true,
-		templateUrl: 'madLibsTemplate.html'
+		templateUrl: 'plotGeneratorTemplate.html'
 	}
 })
 

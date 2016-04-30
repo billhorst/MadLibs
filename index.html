@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="madLibs">
+<html ng-app="plotGenerator">
 <head>
 	<title>Plot Generator</title>
 	<script src="angular.js"></script>
@@ -12,20 +12,20 @@
 <h2>Fill in the blanks and then click the buttons to read your stories!</h2>
 	<fill-in-words ng-show="active.fillingInWords"></fill-in-words>
 	<br ng-if="active.fillingInWords" />
-	<mad-libs-story ng-if="active.actionStory">
+	<plot-generator-story ng-if="active.actionStory">
 		<h3>There was a {{gender.noun}} named {{word.properName}}. {{gender.subj | capitalize}} was {{word.emotion}}. {{gender.subj | capitalize}} liked to {{word.verb}}.</h3>	
-	</mad-libs-story>
-	<mad-libs-story ng-if="active.horrorStory">
+	</plot-generator-story>
+	<plot-generator-story ng-if="active.horrorStory">
 		<h3>There was a hunter named {{word.properName}}. {{gender.subj | capitalize}} was always {{word.emotion}}. Every Saturday, {{gender.subj}} went hunting {{word.animal}}s.</h3>
-	</mad-libs-story>
-	<mad-libs-story ng-if="active.sadStory">
+	</plot-generator-story>
+	<plot-generator-story ng-if="active.sadStory">
 		<h3>There was a sad {{gender.noun}} named {{word.properName}}. {{gender.possDet | capitalize}} pet {{word.animal}} just got eaten by a {{word.animal2}}.</h3>
-	</mad-libs-story>
+	</plot-generator-story>
 	<button ng-click="showHorror()">Click to show the horror story</button>
 	<button ng-click="showAction()">Click to show the action story</button>
 	<button ng-click="showSad()">Click to show the sad story</button>
 	<button ng-click="editWordList()" ng-hide="active.fillingInWords">Click to go back and change some words</button>
-	<button ng-click="startNewMadLibs()" ng-hide="active.fillingInWords">New game</button>
+	<button ng-click="startNewPlotGenerator()" ng-hide="active.fillingInWords">New game</button>
 	<button ng-click="genRanWords()" ng-show="active.fillingInWords">Generate random words</button>
 	<!-- <button ng-click="editWordListShowing()">Click to go back and edit words while showing stories</button> -->
 </body>
