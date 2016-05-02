@@ -1,3 +1,131 @@
 body {
 	background-color: #eee;
 }
+
+.theView {
+	width: 90%;
+	margin: auto;
+}
+
+/*title and instructions-----------*/
+.title {
+	font-size: 36pt;
+	text-align: center;
+	text-shadow: 8px 8px 12px red;
+}
+
+.instructions {
+	font-size: 22pt;
+	background-color: #eed;
+	padding: 5px;
+	border-radius: 10px;
+	padding-left: 50px;
+	line-height: 10px;
+}
+
+/*word entry section---------------*/
+.wordEntry {
+	border: solid black 1px;
+	border-radius: 10px;
+}
+
+.wordEntry button {
+	font-size: 12pt;
+	margin: 15px;
+	margin-top: 10px;
+
+}
+
+.heroGenderTitle {
+	font-size: 24pt;
+}
+
+.inputBoxes {
+	display: inline-block;
+}
+
+.inputBox {
+	height: 100px;
+	width: 158px;
+	/*background-color: red;*/
+	border: solid black 2px;
+
+}
+
+.inputField {
+	font-size: 12pt;
+	width: 150px;
+	display: inline-block;
+	margin: 2px;
+	/*border: 2px solid black;*/
+}
+
+/*stories---------------------------*/
+.stories {
+	height: 300px;
+	font-size: 24pt;
+	border: solid black 3px;
+	border-radius: 10px;
+}
+
+.fullPage {
+	height: 600px;
+}
+
+.fillerStory {
+	font-size: 24pt;
+	/*padding-left: 50px;
+	margin-left: 50px;*/
+}
+
+/*buttons---------------------------*/
+.buttonDivider {
+	background-color: red;
+	border: solid black 1px;
+}
+
+.showStoryButtons {
+	padding: 20px;
+	color: blue;
+	border: solid black 1px;
+}
+
+.showStoryButtons button {
+	font-size: 18pt;
+}
+
+.gameButtons {
+	padding: 20px;
+	background-color: blue;
+	border: solid black 1px;
+}
+
+.gameButtons button {
+	font-size: 18pt;
+}
+
+.maleButton, .femaleButton {
+	font-size: 24pt !important;
+	background-color: #aca;
+}
+
+.allRandomButton {
+	font-size: 24pt !important;
+	background-color: #aea;
+}
+
+.ranButton {
+	background-color: #ada;
+}
+
+.buttonDisabled {
+	opacity: 0.65;
+	cursor: not-allowed;
+}
+
+/*error messages--------------------*/
+.errorMessage {
+	color: red;
+	font-style: italic;
+	background-color: yellow;
+}

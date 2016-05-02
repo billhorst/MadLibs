@@ -2,118 +2,135 @@ var app = angular.module('plotGenerator', []);
 
 app.controller('mlCtrl', function($scope) {
 	$scope.gender = {};
-	$scope.word = {};
-	$scope.genderChosen = false;
-	$scope.active = {
-		fillingInWords: true,
-			// horrorStory: false,
-			// actionStory: false,
-			// sadStory: false,
-			// inspirationalStory: false
+	resetWords = function() {
+		$scope.word = {
+			properName: "",
+			emotion: "",
+			verb: "",
+			animal: "",
+			animal2: "",
+			adjective: ""
 		};
-		// $scope.fillingInWords = true;
+	};
+	resetWords();
+	$scope.genderExplanation = false;
+	var malePropNames = randomWordArrays.malePropNameArray;
+	var femalePropNames = randomWordArrays.femalePropNameArray;
+	var emotions = randomWordArrays.emotionArray;
+	var verbs = randomWordArrays.verbArray;
+	var animals = randomWordArrays.animalArray;
+	var animal2s = randomWordArrays.animalArray;
+	var adjectives = randomWordArrays.adjectiveArray;
 
-		$scope.showHorror = function() {
-			$scope.formComplete = true;
-			// $scope.active.fillingInWords = false;
-			// $scope.active.actionStory = false;
-			// $scope.active.sadStory = false;
-			if($scope.plotGeneratorForm.$valid && $scope.genderChosen) {
-				$scope.active = {};
-				$scope.active.horrorStory = true;
-			}
-		}
+	//function to calculate random words
+	calcRandomWord = function(nameArray) {
+		return nameArray[Math.floor(Math.random()*nameArray.length)];
+	}
+	$scope.active = {
+		fillingInWords: true
+	};
 
-		$scope.showAction = function() {
-			$scope.formComplete = true;
-			// $scope.active.fillingInWords = false;
-			// $scope.active.horrorStory = false;
-			// $scope.active.sadStory = false;
-			if($scope.plotGeneratorForm.$valid && $scope.genderChosen) {
-				$scope.active = {};
-				$scope.active.actionStory = true;
-			}
-		}
-
-		$scope.showSad = function() {
-			$scope.formComplete = true;
-			// $scope.active.fillingInWords = false;
-			// $scope.active.horrorStory = false;
-			// $scope.active.actionStory = false;
-			if($scope.plotGeneratorForm.$valid && $scope.genderChosen) {
-				$scope.active = {};
-				$scope.active.sadStory = true;
-			}
-		}
-
-		$scope.editWordList = function() {
+	$scope.showHorror = function() {
+		$scope.formComplete = true;
+		if($scope.plotGeneratorForm.$valid && $scope.genderExplanation) {
 			$scope.active = {};
-			$scope.active.fillingInWords = true;
+			$scope.active.horrorStory = true;
 		}
+	}
 
-		$scope.startNewPlotGenerator = function() {
-			$scope.word = {};
+	$scope.showAction = function() {
+		$scope.formComplete = true;
+		if($scope.plotGeneratorForm.$valid && $scope.genderExplanation) {
 			$scope.active = {};
-			$scope.formComplete = false;
-			$scope.active.fillingInWords = true;
+			$scope.active.actionStory = true;
 		}
+	}
 
-		$scope.genRanWords = function() {
-			var malePropNameArray = ["Edwin","Mike","Bob Lough","Jay"];
-			var femalePropNameArray = ["Katrina","Carrie","Jacqueline","Sonja"];
-			var emotionArray = ["happy","angry","cheery","jaded"];
-			var verbArray = ["go","run","confront","cry"];
-			var animalArray = ["dog","cat","monkey","drop bear","zebra","flying fish"];
-
-			if($scope.gender.gender === "male") {
-				$scope.word.properName = malePropNameArray[Math.floor(Math.random()*malePropNameArray.length)];
-			} else if ($scope.gender.gender === "female") {
-				$scope.word.properName = femalePropNameArray[Math.floor(Math.random()*femalePropNameArray.length)];
-			}
-			$scope.word.emotion = emotionArray[Math.floor(Math.random()*emotionArray.length)];
-			$scope.word.verb = verbArray[Math.floor(Math.random()*verbArray.length)];
-			$scope.word.animal = animalArray[Math.floor(Math.random()*animalArray.length)];
-			do {
-				$scope.word.animal2 = animalArray[Math.floor(Math.random()*animalArray.length)];
-				console.log($scope.word.animal+$scope.word.animal2);
-			}
-			while ($scope.word.animal === $scope.word.animal2);
+	$scope.showSad = function() {
+		$scope.formComplete = true;
+		if($scope.plotGeneratorForm.$valid && $scope.genderExplanation) {
+			$scope.active = {};
+			$scope.active.sadStory = true;
 		}
+	}
 
-		$scope.setGenderMale = function() {
-			$scope.gender = {
-				gender: "male",
-				noun: "boy",
-				subj: "he",
-				obj: "him",
-				possDet: "his",
-				possPro: "his",
-				reflexive: "himself"
-			}
-			$scope.genderChosen = true;
+	$scope.editWordList = function() {
+		$scope.active = {};
+		$scope.active.fillingInWords = true;
+	}
+
+	$scope.startNewPlotGenerator = function() {
+		resetWords();
+		$scope.active = {};
+		$scope.gender = {};
+		$scope.genderExplanation = false;
+		$scope.formComplete = false;
+		$scope.active.fillingInWords = true;
+	}
+
+	$scope.genRanWords = function() {
+		//calculate random proper names based on gender choice
+		if($scope.gender.gender === "male") {
+			$scope.word.properName = calcRandomWord(malePropNames);
+		} else if ($scope.gender.gender === "female") {
+			$scope.word.properName = calcRandomWord(femalePropNames);
 		}
-
-		$scope.setGenderFemale = function() {
-			$scope.gender = {
-				gender: "female",
-				noun: "girl",
-				subj: "she",
-				obj: "her",
-				possDet: "her",
-				possPro: "hers",
-				reflexive: "herself"
-			}
-			$scope.genderChosen = true;
+		$scope.word.emotion = calcRandomWord(emotions);
+		$scope.word.verb = calcRandomWord(verbs);
+		$scope.word.animal = calcRandomWord(animals);
+		//assigning second animal to animal2 while making sure it's not same animal as animal(1)
+		do {
+			$scope.word.animal2 = calcRandomWord(animals);
 		}
+		while ($scope.word.animal === $scope.word.animal2);
+		$scope.word.adjective = calcRandomWord(adjectives);
+	}
 
+	$scope.genRanWord = function(wordToGen) {
+		$scope.word[wordToGen] = calcRandomWord(eval(wordToGen+"s"));
+	}
 
+	$scope.genPropName = function() {
+		// calculate random proper names based on gender choice
+		if($scope.gender.gender === "male") {
+			$scope.word.properName = calcRandomWord(malePropNames);
+		} else if ($scope.gender.gender === "female") {
+			$scope.word.properName = calcRandomWord(femalePropNames);
+		}
+	}
 
-		// $scope.editWordListShowing = function() {
-		// 	$scope.active.horrorStory = true;
-		// 	$scope.active.fillingInWords = true;
-		// }
+	$scope.fillInBlankWords = function(word) {
+		for (var word in $scope.word) {
+			alert(word);
+		}
+	}
 
-	})
+	$scope.setGenderMale = function() {
+		$scope.gender = {
+			gender: "male",
+			noun: "boy",
+			subj: "he",
+			obj: "him",
+			possDet: "his",
+			possPro: "his",
+			reflexive: "himself"
+		}
+		$scope.genderExplanation = true;
+	}
+
+	$scope.setGenderFemale = function() {
+		$scope.gender = {
+			gender: "female",
+			noun: "girl",
+			subj: "she",
+			obj: "her",
+			possDet: "her",
+			possPro: "hers",
+			reflexive: "herself"
+		}
+		$scope.genderExplanation = true;
+	}
+})
 
 .directive('plotGeneratorStory', function() {
 	return {
@@ -128,6 +145,28 @@ app.controller('mlCtrl', function($scope) {
 		restrict: 'E',
 		transclude: false,
 		templateUrl: 'wordList.html'
+	}
+})
+
+.directive('buttonList', function() {
+	return {
+		restrict: 'E',
+		templateUrl: 'buttonList.html'
+	}
+})
+
+.directive('storiesView', function() {
+	return {
+		restrict: 'E',
+		templateUrl: 'stories.html'
+	}
+})
+
+.directive('inputBox', function() {
+	return {
+		restrict: 'E',
+		transclude: true,
+		templateUrl: 'inputBox.html'
 	}
 })
 

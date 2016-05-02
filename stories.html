@@ -1,0 +1,10 @@
+<div class="stories" ng-class="{ 'fullPage': !active.fillingInWords}">
+	<br ng-if="active.fillingInWords" />
+	<plot-generator-story ng-hide="!active.fillingInWords" class="fillerStory">Your story will generate here when you click a story button.</plot-generator-story>
+	<plot-generator-story ng-if="active.actionStory">
+	<h3>There was a {{gender.noun}} named {{word.properName}}. {{gender.subj | capitalize}} was {{word.emotion}}. {{gender.subj | capitalize}} liked to {{word.verb}}.</h3></plot-generator-story>
+	<plot-generator-story ng-if="active.horrorStory">
+	<h3>There was a hunter named {{word.properName}}. {{gender.subj | capitalize}} was always {{word.emotion}}. Every Saturday, {{gender.subj}} went hunting {{word.animal}}s.</h3></plot-generator-story>
+	<plot-generator-story ng-if="active.sadStory">
+	<h3>There was a sad {{gender.noun}} named {{word.properName}}. {{gender.possDet | capitalize}} pet {{word.animal}} just got eaten by a {{word.animal2}}.</h3></plot-generator-story>
+</div>

@@ -1,0 +1,11 @@
+<div class="buttonDivider">
+	<div class="showStoryButtons" >
+		<button ng-click="showHorror()">Horror story</button>
+		<button ng-click="showAction()">Action story</button>
+		<button ng-click="showSad()">Sad story</button>
+	</div>
+	<div class="gameButtons" ng-hide="active.fillingInWords">
+		<button ng-click="editWordList()">Click to go back and change some words</button>
+		<button ng-click="startNewPlotGenerator()">New game</button>
+	</div>
+</div>

@@ -1,17 +1,26 @@
-<div>
+<div class="wordEntry">
 	<form name="plotGeneratorForm" novalidate>
 		<!-- <input type="radio" name="gender" ng-model="gender" value="male"> Male<br />
 		<input type="radio" name="gender" ng-model="gender" value="female"> Female<br /> -->
-		<button ng-click="setGenderMale()">Male</button>
-		<button ng-click="setGenderFemale()">Female</button>
-		<h3>Hero is {{gender.gender}}</h3><br />
-		<input type="text" ng-model="word.properName" placeholder="Proper Name" required>
-		<input type="text" ng-model="word.emotion" placeholder="Emotion" required>
-		<input type="text" ng-model="word.verb" placeholder="Verb" required>
-		<input type="text" ng-model="word.animal" placeholder="Animal" required>
-		<input type="text" ng-model="word.animal2" placeholder="Another Animal" required>
+		<button ng-click="setGenderMale()" class="maleButton">Male</button>
+		<button ng-click="setGenderFemale()" class="femaleButton">Female</button>
+		<span class="heroGenderTitle" ng-hide="genderExplanation">Choose a gender for the main character.</span>
+		<span class="heroGenderTitle" ng-show="genderExplanation">The main character is {{gender.gender}}.</span><br />
+		<input-box><input type="text" class="inputField" ng-model="word.properName" placeholder="Proper Name" required><button class="ranButton" ng-class="{'buttonDisabled': !genderExplanation}" ng-click="genPropName()">Random {{gender.gender}} name</button></input-box>
+		<input-box><input type="text" class="inputField" ng-model="word.emotion" placeholder="Emotion" required><button class="ranButton" ng-click="genRanWord('emotion')">Random emotion</button></input-box>
+		<input-box><input type="text" class="inputField" ng-model="word.verb" placeholder="Verb" required><button class="ranButton" ng-click="genRanWord('verb')">Random Verb</button></input-box>
+		<input-box><input type="text" class="inputField" ng-model="word.animal" placeholder="Animal" required><button class="ranButton" ng-click="genRanWord('animal')">Random animal</button></input-box>
+		<input-box><input type="text" class="inputField" ng-model="word.animal2" placeholder="Another Animal" required><button class="ranButton" ng-click="genRanWord('animal2')">Random animal</button></input-box>
+		<input-box><input type="text" class="inputField" ng-model="word.adjective" placeholder="Adjective" required><button class="ranButton" ng-click="genRanWord('adjective')">Random adjective</button></input-box>
+		<div ng-show="active.fillingInWords">
+			<button ng-click="genRanWords()" class="allRandomButton">Fill in all fields with random words</button>
+		</div>
 	</form>
-	<div class="errorMessage">
-		<p ng-if="formComplete && plotGeneratorForm.$error.required">Fill every field out!</p>
+	<div ng-if="formComplete && plotGeneratorForm.$error.required">
+		<span class="errorMessage" >Fill every field out!</span>
+	</div>
+	<br />
+	<div ng-if="formComplete && !genderExplanation">
+		<span class="errorMessage" >Choose a gender!</span>
 	</div>
 </div>
