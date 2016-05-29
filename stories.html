@@ -1,10 +1,24 @@
-<div class="stories" ng-class="{ 'fullPage': !active.fillingInWords}">
+<div ng-if="!active.fillingInWords" class="stories" ng-class="{ 'fullPage': !active.fillingInWords}">
 	<br ng-if="active.fillingInWords" />
-	<plot-generator-story ng-hide="!active.fillingInWords" class="fillerStory">Your story will generate here when you click a story button.</plot-generator-story>
-	<plot-generator-story ng-if="active.actionStory">
-	<h3>There was a {{gender.noun}} named {{word.properName}}. {{gender.subj | capitalize}} was {{word.emotion}}. {{gender.subj | capitalize}} liked to {{word.verb}}.</h3></plot-generator-story>
+	<!-- <plot-generator-story ng-hide="!active.fillingInWords" class="fillerStory">Your story will generate here when you click a story button.</plot-generator-story> -->
+
+	<plot-generator-story ng-if="active.sciFiStory">
+	<h3>Ten Thousand Years of {{word.adjective | capitalize}} {{word.ingVerb | capitalize}}!</h3>
+	<p>While flying {{gender.possDet}} spaceship by Planet {{word.country}}, a {{gender.noun}} named {{word.properName}} comes across a small planet of miniature {{word.pluralAnimal}} {{word.ing_verb}}. Having been travelling for {{word.number}} months through space, {{gender.subj}} was very tired. Sensing this, the {{word.animal | capitalize}} King approaches {{word.properName}} and offers {{gender.obj}} a place to stay for the night as long as {{gender.subj}} continued {{word.adjective}} {{word.ingVerb}} with the rest of the {{word.adjective2}} {{word.pluralAnimal}}. {{gender.subj | capitalize}} agrees and they give {{gender.obj}} a room.</p>
+	<p>{{gender.subj | capitalize}} enjoys {{word.adjective}} {{word.ingVerb}} with the {{word.pluralAnimal}} so much so that weeks turn into months and months turn into years. {{gender.subj | capitalize}} finds out that as long as {{gender.subj}}'s {{word.adjective}} {{word.ingVerb}}, {{gender.subj}} doesn't age.</p>
+	<p>When {{gender.subj}} decides that it's time to return home, {{gender.subj}} finds that {{gender.possDet}} spaceship has fallen into disrepair and needs a piece of {{word.noun}} which only floats by every 10,000 years. All {{gender.subj}} can do is continue {{word.adjective}} {{word.ingVerb}} in the middle of the {{word.area}}. What will {{gender.subj}} do?</p>
+	</plot-generator-story>
+
 	<plot-generator-story ng-if="active.horrorStory">
-	<h3>There was a hunter named {{word.properName}}. {{gender.subj | capitalize}} was always {{word.emotion}}. Every Saturday, {{gender.subj}} went hunting {{word.animal}}s.</h3></plot-generator-story>
-	<plot-generator-story ng-if="active.sadStory">
-	<h3>There was a sad {{gender.noun}} named {{word.properName}}. {{gender.possDet | capitalize}} pet {{word.animal}} just got eaten by a {{word.animal2}}.</h3></plot-generator-story>
+	<h3>The Curse of the {{word.adjective | capitalize}} {{word.noun | capitalize}}!</h3>
+	<p>In a small shack on the outskirts of {{word.city}}, {{word.country}}, lives a mean {{gender.noun}} named {{word.properName}} and {{gender.possDet}} two {{word.adjective2}} {{word.pluralAnimal}}. Everyday, just for fun, {{gender.subj}} takes {{gender.possDet}} two {{word.pluralAnimal}} hunting for {{word.pluralAnimal2}}. One day, while hunting, one of {{gender.possDet}} {{word.adjective2}} {{word.pluralAnimal}}, General {{word.maleName}}, goes off chasing {{word.pluralAnimal2}} and doesn't come back.</p>
+	<p>{{word.number2_10}} days later, General {{word.maleName}} comes back carrying a small {{word.adjective}} {{word.noun}} that resembles a growling {{word.animal2}}. The {{gender.noun}} looks at the {{word.adjective}} {{word.noun}} and immediately faints. {{gender.subj | capitalize}} wakes up in the middle of a {{word.area}} and realizes that {{gender.subj}}'s turned into a small, {{word.adjective2}} {{word.animal2}}. Before {{gender.subj}} can figure out what happened, {{gender.subj}} hears {{gender.possDet}} {{word.pluralAnimal}} {{word.ingVerb}} in the distance...</p></plot-generator-story>
+
+	<plot-generator-story ng-if="active.actionStory">
+	<h3>The {{word.ingVerb | capitalize}} {{word.animal | capitalize}}!</h3>
+	<p>Only two years pass since {{gender.possDet}} pet {{word.animal}} got stuck in a blender and passed away. Since then, {{word.properName | capitalize}} takes to {{word.ingVerb}}. {{gender.subj | capitalize}} also likes to {{word.verb}}. {{gender.subj | capitalize}} likes to {{word.verb}} so much, that people begin to call {{gender.obj}} {{word.adjective}} behind {{gender.possDet}} back. This goes on for years.</p>
+	<p>One day, {{word.properName}} wakes up to {{word.pluralAnimal2}} making lots of noise. Still sad from that {{word.adjective2}} accident, {{gender.subj}} starts to {{word.verb}} and thinks nothing of it. But the noise gets louder and louder until {{gender.subj}} can't {{word.verb}} anymore. The {{word.pluralAnimal2}} turn into magical flying {{word.pluralAnimal}} and take {{gender.obj}} away to a vast {{word.area}} in {{word.city}} filled with {{word.ingVerb}} {{word.pluralAnimal}}! {{gender.subj | capitalize}} is sure to get over {{gender.possDet}} sadness and have lots of {{word.adjective2}} adventures...</p></plot-generator-story>
+
 </div>
+
+<!-- add ingVerb and number -->

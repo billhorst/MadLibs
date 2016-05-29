@@ -1,21 +1,117 @@
 <div class="wordEntry">
 	<form name="plotGeneratorForm" novalidate>
-		<!-- <input type="radio" name="gender" ng-model="gender" value="male"> Male<br />
-		<input type="radio" name="gender" ng-model="gender" value="female"> Female<br /> -->
+
+		<!-- gender selection -->
 		<button ng-click="setGenderMale()" class="maleButton">Male</button>
 		<button ng-click="setGenderFemale()" class="femaleButton">Female</button>
 		<span class="heroGenderTitle" ng-hide="genderExplanation">Choose a gender for the main character.</span>
 		<span class="heroGenderTitle" ng-show="genderExplanation">The main character is {{gender.gender}}.</span><br />
-		<input-box><input type="text" class="inputField" ng-model="word.properName" placeholder="Proper Name" required><button class="ranButton" ng-class="{'buttonDisabled': !genderExplanation}" ng-click="genPropName()">Random {{gender.gender}} name</button></input-box>
-		<input-box><input type="text" class="inputField" ng-model="word.emotion" placeholder="Emotion" required><button class="ranButton" ng-click="genRanWord('emotion')">Random emotion</button></input-box>
-		<input-box><input type="text" class="inputField" ng-model="word.verb" placeholder="Verb" required><button class="ranButton" ng-click="genRanWord('verb')">Random Verb</button></input-box>
-		<input-box><input type="text" class="inputField" ng-model="word.animal" placeholder="Animal" required><button class="ranButton" ng-click="genRanWord('animal')">Random animal</button></input-box>
-		<input-box><input type="text" class="inputField" ng-model="word.animal2" placeholder="Another Animal" required><button class="ranButton" ng-click="genRanWord('animal2')">Random animal</button></input-box>
-		<input-box><input type="text" class="inputField" ng-model="word.adjective" placeholder="Adjective" required><button class="ranButton" ng-click="genRanWord('adjective')">Random adjective</button></input-box>
+
+		<hr />
+		<div class="inputBoxes">
+			<!-- name -->
+			<div class="inputBox">
+			<h3 ng-show="!genderExplanation">Name</h3>
+			<h3 ng-show="genderExplanation">{{gender.gender | capitalize}} name</h3>
+			<input type="text" class="inputField singleField" ng-model="word.properName" placeholder="Proper Name" required>
+			<button class="ranButton singleField" ng-class="{'buttonDisabled': !genderExplanation}" ng-click="genPropName()">Random {{gender.gender}} name</button></div>
+
+			<div class="inputBox">
+			<h3>Male name</h3>
+			<input type="text" class="inputField singleField" ng-model="word.maleName" placeholder="Male name" required>
+			<button class="ranButton singleField" ng-click="genRanWord('maleName','1')">Random male name</button></div>
+
+			<!-- emotion -->
+			<div class="inputBox">
+			<h3>Emotion</h3>
+			<input type="text" class="inputField singleField" ng-model="word.emotion" placeholder="Emotion" required>
+			<button class="ranButton singleField" ng-click="genRanWord('emotion','1')">Random emotion</button></div>
+
+			<!-- verb -->
+			<div class="inputBox">
+			<h3>Verb</h3>
+			<input type="text" class="inputField singleField" ng-model="word.verb" placeholder="Verb" required>
+			<button class="ranButton singleField" ng-click="genRanWord('verb','1')">Random Verb</button></div>
+
+			<!-- animal 1 + plural animal 1 -->
+			<div class="inputBox">
+			<h3>Animal and its plural form</h3>
+			<input type="text" class="inputField" ng-model="word.animal" placeholder="pig" required>
+			<input type="text" class="inputField" ng-model="word.pluralAnimal" placeholder="pigs" required>
+			<button class="ranButton" ng-click="genRanWordAndPlural('animal', '1')">Random animal</button></div>
+
+			<!-- animal 2 + plural animal 2 -->
+			<div class="inputBox">
+			<h3>Different Animal and its plural form</h3>
+			<input type="text" class="inputField" ng-model="word.animal2" placeholder="bird" required>
+			<input type="text" class="inputField" ng-model="word.pluralAnimal2" placeholder="birds" required>
+			<button class="ranButton" ng-click="genRanWordAndPlural('animal', '2')">Random animal</button></div>
+
+			<!-- noun 1 + plural noun 1 -->
+			<div class="inputBox">
+			<h3>Noun/ Same plural noun</h3>
+			<input type="text" class="inputField" ng-model="word.noun" placeholder="Noun" required>
+			<input type="text" class="inputField" ng-model="word.pluralNoun" placeholder="Same noun (plural)" required>
+			<button class="ranButton" ng-click="genRanWordAndPlural('noun', '1')">Random noun</button></div>
+
+			<!-- noun 2 + plural noun 2 -->
+			<div class="inputBox">
+			<h3>Different noun/ Same plural noun</h3>
+			<input type="text" class="inputField" ng-model="word.noun2" placeholder="Another Noun" required>
+			<input type="text" class="inputField" ng-model="word.pluralNoun2" placeholder="Same noun (plural)" required>
+			<button class="ranButton" ng-click="genRanWordAndPlural('noun', '2')">Random noun</button></div>
+
+			<!-- adjective 1 -->
+			<div class="inputBox">
+			<h3>Adjective</h3>
+			<input type="text" class="inputField singleField" ng-model="word.adjective" placeholder="Adjective" required>
+			<button class="ranButton singleField" ng-click="genRanWord('adjective','1')">Random adjective</button></div>
+
+			<!-- adjective 2 -->
+			<div class="inputBox">
+			<h3>Different Adjective</h3>
+			<input type="text" class="inputField singleField" ng-model="word.adjective2" placeholder="Another adjective" required>
+			<button class="ranButton singleField" ng-click="genRanWord('adjective','2')">Random adjective</button></div>
+
+			<!-- city -->
+			<div class="inputBox">
+			<h3>City</h3>
+			<input type="text" class="inputField singleField" ng-model="word.city" placeholder="City" required>
+			<button class="ranButton singleField" ng-click="genRanWord('city','1')">Random city</button></div>
+
+			<!-- country -->
+			<div class="inputBox">
+			<h3>Country</h3>
+			<input type="text" class="inputField singleField" ng-model="word.country" placeholder="Country" required>
+			<button class="ranButton singleField" ng-click="genRanWord('country','1')">Random country</button></div>
+
+			<!-- location/ area -->
+			<div class="inputBox">
+			<h3>Area</h3>
+			<input type="text" class="inputField singleField" ng-model="word.area" placeholder="Area (factory, field, etc.)" required>
+			<button class="ranButton singleField" ng-click="genRanWord('area','1')">Random area</button></div>
+
+			<!-- location/ area -->
+			<div class="inputBox">
+			<h3>"-ing" Verb</h3>
+			<input type="text" class="inputField singleField" ng-model="word.ingVerb" placeholder='"-ing" Verb (playing, etc.)' required>
+			<button class="ranButton singleField" ng-click="genRanWord('ingVerb','1')">Random "-ing" verb</button></div>
+
+			<!-- number -->
+			<div class="inputBox">
+			<h3>Number 2 ~ 10</h3>
+			<input type="number" class="inputField singleField" ng-model="word.number2_10" placeholder="Number 2 ~ 10" required>
+			<button class="ranButton singleField" ng-click="genRanNum(2,10,'number2_10')">Random number</button></div>
+
+		</div>
+
+		<!-- generate random words for every word -->
 		<div ng-show="active.fillingInWords">
 			<button ng-click="genRanWords()" class="allRandomButton">Fill in all fields with random words</button>
 		</div>
 	</form>
+
+	<!-- validation error messages -->
 	<div ng-if="formComplete && plotGeneratorForm.$error.required">
 		<span class="errorMessage" >Fill every field out!</span>
 	</div>

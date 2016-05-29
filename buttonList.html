@@ -1,11 +1,13 @@
 <div class="buttonDivider">
 	<div class="showStoryButtons" >
-		<button ng-click="showHorror()">Horror story</button>
-		<button ng-click="showAction()">Action story</button>
-		<button ng-click="showSad()">Sad story</button>
+		<button type="button" class="btn btn-primary" ng-click="showHorror()">Horror story</button>
+		<button type="button" class="btn btn-primary" ng-click="showAction()">Action story</button>
+		<button type="button" class="btn btn-primary" ng-click="showSciFi()">Sci-Fi story</button>
 	</div>
+	<hr />
 	<div class="gameButtons" ng-hide="active.fillingInWords">
-		<button ng-click="editWordList()">Click to go back and change some words</button>
-		<button ng-click="startNewPlotGenerator()">New game</button>
+		<button type="button" class="btn btn-success" ng-click="editWordList()">Click to go back and change some words</button>
+		<button type="button" class="btn btn-success" ng-click="startNewPlotGenerator()">New game</button>
+		<button type="button" class="btn btn-success genWordsButtonWhileReading" ng-click="genRanWords()">Generate a different set of random words</button>
 	</div>
 </div>

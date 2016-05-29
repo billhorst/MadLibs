@@ -4,8 +4,11 @@
 	<title>Plot Generator</title>
 	<script src="angular.js"></script>
 	<script src="app.js"></script>
+	<script src="filters.js"></script>
+	<script src="directives.js"></script>
 	<script src="randomWordList.js"></script>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body ng-controller="mlCtrl">
 	<div class="theView">
@@ -13,9 +16,10 @@
 		<hr />
 		<div class="instructions" ng-show="active.fillingInWords">
 			<p>1 - Choose the hero's gender.</p>
-			<p>2 - Fill in the blanks.</p>
+			<p>2 - Fill in the blanks. (Or click the buttons to fill them in for you.)</p>
 			<p>3 - Click the buttons to read your stories!</p>
 		</div>
+		<hr ng-show="active.fillingInWords"/>
 		<fill-in-words ng-show="active.fillingInWords"></fill-in-words>
 		<stories-view></stories-view>
 		<button-list></button-list>
