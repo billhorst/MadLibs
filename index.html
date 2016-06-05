@@ -2,27 +2,23 @@
 <html ng-app="plotGenerator">
 <head>
 	<title>Plot Generator</title>
-	<script src="angular.js"></script>
-	<script src="app.js"></script>
-	<script src="filters.js"></script>
-	<script src="directives.js"></script>
-	<script src="randomWordList.js"></script>
-	<link rel="stylesheet" href="style.css">
+	<script src="scripts/angular.js"></script>
+	<script src="scripts/app.js"></script>
+	<script src="scripts/filters.js"></script>
+	<script src="scripts/directives.js"></script>
+	<script src="scripts/randomWordList.js"></script>
+	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body ng-controller="mlCtrl">
 	<div class="theView">
 		<h1 class="title">Plot Generator!</h1>
 		<hr />
-		<div class="instructions" ng-show="active.fillingInWords">
-			<p>1 - Choose the hero's gender.</p>
-			<p>2 - Fill in the blanks. (Or click the buttons to fill them in for you.)</p>
-			<p>3 - Click the buttons to read your stories!</p>
-		</div>
-		<hr ng-show="active.fillingInWords"/>
+		<intro-to-app ng-show="active.showIntro"></intro-to-app>
 		<fill-in-words ng-show="active.fillingInWords"></fill-in-words>
 		<stories-view></stories-view>
 		<button-list></button-list>
 	</div>
+	<foot></foot>
 </body>
 </html>

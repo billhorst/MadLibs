@@ -1,6 +1,11 @@
 <div class="wordEntry">
 	<form name="plotGeneratorForm" novalidate>
-
+		<div class="instructions" ng-show="active.fillingInWords">
+			<p>1 - Choose the hero's gender.</p>
+			<p>2 - Fill in the blanks. (Or click the buttons to fill them in for you.)</p>
+			<p>3 - Click the buttons to read your stories!</p>
+		</div>
+		<hr ng-show="active.fillingInWords"/>
 		<!-- gender selection -->
 		<button ng-click="setGenderMale()" class="maleButton">Male</button>
 		<button ng-click="setGenderFemale()" class="femaleButton">Female</button>
@@ -13,24 +18,24 @@
 			<div class="inputBox">
 			<h3 ng-show="!genderExplanation">Name</h3>
 			<h3 ng-show="genderExplanation">{{gender.gender | capitalize}} name</h3>
-			<input type="text" class="inputField singleField" ng-model="word.properName" placeholder="Proper Name" required>
+			<input type="text" class="inputField singleField" ng-model="word.properName" placeholder="Pat" required>
 			<button class="ranButton singleField" ng-class="{'buttonDisabled': !genderExplanation}" ng-click="genPropName()">Random {{gender.gender}} name</button></div>
 
 			<div class="inputBox">
 			<h3>Male name</h3>
-			<input type="text" class="inputField singleField" ng-model="word.maleName" placeholder="Male name" required>
+			<input type="text" class="inputField singleField" ng-model="word.maleName" placeholder="Dave" required>
 			<button class="ranButton singleField" ng-click="genRanWord('maleName','1')">Random male name</button></div>
 
 			<!-- emotion -->
 			<div class="inputBox">
 			<h3>Emotion</h3>
-			<input type="text" class="inputField singleField" ng-model="word.emotion" placeholder="Emotion" required>
+			<input type="text" class="inputField singleField" ng-model="word.emotion" placeholder="scared" required>
 			<button class="ranButton singleField" ng-click="genRanWord('emotion','1')">Random emotion</button></div>
 
 			<!-- verb -->
 			<div class="inputBox">
 			<h3>Verb</h3>
-			<input type="text" class="inputField singleField" ng-model="word.verb" placeholder="Verb" required>
+			<input type="text" class="inputField singleField" ng-model="word.verb" placeholder="speak" required>
 			<button class="ranButton singleField" ng-click="genRanWord('verb','1')">Random Verb</button></div>
 
 			<!-- animal 1 + plural animal 1 -->
@@ -50,57 +55,57 @@
 			<!-- noun 1 + plural noun 1 -->
 			<div class="inputBox">
 			<h3>Noun/ Same plural noun</h3>
-			<input type="text" class="inputField" ng-model="word.noun" placeholder="Noun" required>
-			<input type="text" class="inputField" ng-model="word.pluralNoun" placeholder="Same noun (plural)" required>
+			<input type="text" class="inputField" ng-model="word.noun" placeholder="hat" required>
+			<input type="text" class="inputField" ng-model="word.pluralNoun" placeholder="hats" required>
 			<button class="ranButton" ng-click="genRanWordAndPlural('noun', '1')">Random noun</button></div>
 
 			<!-- noun 2 + plural noun 2 -->
 			<div class="inputBox">
 			<h3>Different noun/ Same plural noun</h3>
-			<input type="text" class="inputField" ng-model="word.noun2" placeholder="Another Noun" required>
-			<input type="text" class="inputField" ng-model="word.pluralNoun2" placeholder="Same noun (plural)" required>
+			<input type="text" class="inputField" ng-model="word.noun2" placeholder="pizza" required>
+			<input type="text" class="inputField" ng-model="word.pluralNoun2" placeholder="pizzas" required>
 			<button class="ranButton" ng-click="genRanWordAndPlural('noun', '2')">Random noun</button></div>
 
 			<!-- adjective 1 -->
 			<div class="inputBox">
 			<h3>Adjective</h3>
-			<input type="text" class="inputField singleField" ng-model="word.adjective" placeholder="Adjective" required>
+			<input type="text" class="inputField singleField" ng-model="word.adjective" placeholder="silly" required>
 			<button class="ranButton singleField" ng-click="genRanWord('adjective','1')">Random adjective</button></div>
 
 			<!-- adjective 2 -->
 			<div class="inputBox">
 			<h3>Different Adjective</h3>
-			<input type="text" class="inputField singleField" ng-model="word.adjective2" placeholder="Another adjective" required>
+			<input type="text" class="inputField singleField" ng-model="word.adjective2" placeholder="tasty" required>
 			<button class="ranButton singleField" ng-click="genRanWord('adjective','2')">Random adjective</button></div>
 
 			<!-- city -->
 			<div class="inputBox">
 			<h3>City</h3>
-			<input type="text" class="inputField singleField" ng-model="word.city" placeholder="City" required>
+			<input type="text" class="inputField singleField" ng-model="word.city" placeholder="Fort Collins" required>
 			<button class="ranButton singleField" ng-click="genRanWord('city','1')">Random city</button></div>
 
 			<!-- country -->
 			<div class="inputBox">
 			<h3>Country</h3>
-			<input type="text" class="inputField singleField" ng-model="word.country" placeholder="Country" required>
+			<input type="text" class="inputField singleField" ng-model="word.country" placeholder="Laos" required>
 			<button class="ranButton singleField" ng-click="genRanWord('country','1')">Random country</button></div>
 
 			<!-- location/ area -->
 			<div class="inputBox">
-			<h3>Area</h3>
-			<input type="text" class="inputField singleField" ng-model="word.area" placeholder="Area (factory, field, etc.)" required>
+			<h3>Area/ Place</h3>
+			<input type="text" class="inputField singleField" ng-model="word.area" placeholder="toaster shop" required>
 			<button class="ranButton singleField" ng-click="genRanWord('area','1')">Random area</button></div>
 
 			<!-- location/ area -->
 			<div class="inputBox">
 			<h3>"-ing" Verb</h3>
-			<input type="text" class="inputField singleField" ng-model="word.ingVerb" placeholder='"-ing" Verb (playing, etc.)' required>
+			<input type="text" class="inputField singleField" ng-model="word.ingVerb" placeholder='jumping' required>
 			<button class="ranButton singleField" ng-click="genRanWord('ingVerb','1')">Random "-ing" verb</button></div>
 
 			<!-- number -->
 			<div class="inputBox">
 			<h3>Number 2 ~ 10</h3>
-			<input type="number" class="inputField singleField" ng-model="word.number2_10" placeholder="Number 2 ~ 10" required>
+			<input type="number" class="inputField singleField" ng-model="word.number2_10" placeholder="5" required>
 			<button class="ranButton singleField" ng-click="genRanNum(2,10,'number2_10')">Random number</button></div>
 
 		</div>

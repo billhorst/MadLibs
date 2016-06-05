@@ -15,10 +15,7 @@ app.controller('mlCtrl', function($scope) {
 	};
 	resetWords();
 	$scope.genderExplanation = false;
-	// var malePropNames = randomWordArrays.malePropNameArray;
-	// var femalePropNames = randomWordArrays.femalePropNameArray;
-	// var emotions = randomWordArrays.emotionArray;
-	// var verbs = randomWordArrays.verbArray;
+
 	var animals = randomWordArrays.animalArray;
 	var animal2s = randomWordArrays.animalArray;
 	var adjectives = randomWordArrays.adjectiveArray;
@@ -27,25 +24,14 @@ app.controller('mlCtrl', function($scope) {
 	var noun2s = randomWordArrays.nounArray;
 	var pluralNoun2s = randomWordArrays.pluralNounArray;
 
-	//function to calculate random words
-	// calcRandomWord = function(nameArray) {
-	// 	return nameArray[Math.floor(Math.random()*nameArray.length)];
-	// }
-
-	// calcRandomWordAndPlural = function(nameArray) {
-	// 	var word;
-	// 	var pluralWord;
-	// 	var randomNum = Math.floor(Math.random()*nameArray.length);
-	// 	word = nameArray[randomNum];
-	// 	pluralWord = 
-	// 	return [word, pluralWord];
-	// }
-
-	//add a function calculates random word and its plural
-
 	$scope.active = {
-		fillingInWords: true
+		fillingInWords: true,
+		showIntro: true
 	};
+
+	$scope.endIntro = function() {
+		$scope.active.showIntro = false;
+	}
 
 	$scope.showHorror = function() {
 		$scope.formComplete = true;
@@ -121,25 +107,6 @@ app.controller('mlCtrl', function($scope) {
 			$scope.word.animal2 = animalPair2[0];
 			$scope.word.pluralAnimal2 = animalPair2[1];
 		} while (animalPair[0] === animalPair2[0]);
-			// calculate plural for animal 1 (making it the plural of the above generated animal)
-		// 	for (var i = 0; i < randomWordArrays.pluralAnimalArray.length; i++) {
-		// 		if($scope.word.animal.charAt(0)==randomWordArrays.pluralAnimalArray[i].charAt(0) &&
-		// 			$scope.word.animal.charAt(1)==randomWordArrays.pluralAnimalArray[i].charAt(1)) {
-		// 			$scope.word.pluralAnimal = randomWordArrays.pluralAnimalArray[i];
-		// 	}
-		// }
-
-		//assigning second animal to animal2 while making sure it's not same animal as animal(1)
-		// do {
-		// 	$scope.word.animal2 = calcRandomWord(animals);
-		// 	// calculate plural for animal 2 (making it the plural of the above generated animal)
-		// 	for (var i = 0; i < randomWordArrays.pluralAnimalArray.length; i++) {
-		// 		if($scope.word.animal2.charAt(0)==randomWordArrays.pluralAnimalArray[i].charAt(0) &&
-		// 			$scope.word.animal2.charAt(1)==randomWordArrays.pluralAnimalArray[i].charAt(1)	) {
-		// 			$scope.word.pluralAnimal2 = randomWordArrays.pluralAnimalArray[i];
-		// 	}
-		// } } while ($scope.word.animal === $scope.word.animal2);
-
 
 		// calculate singular and plural noun 1
 		var nounPair = getRandomNounPair();
@@ -151,37 +118,6 @@ app.controller('mlCtrl', function($scope) {
 			$scope.word.noun2 = nounPair2[0];
 			$scope.word.pluralNoun2 = nounPair2[1];
 		} while (nounPair[0] === nounPair2[0]);
-			// calculate plural for noun 1 (making it the plural of the above generated noun)
-		// 	for (var i = 0; i < randomWordArrays.pluralNounArray.length; i++) {
-		// 		if($scope.word.noun.charAt(0)==randomWordArrays.pluralNounArray[i].charAt(0) &&
-		// 			$scope.word.noun.charAt(1)==randomWordArrays.pluralNounArray[i].charAt(1)) {
-		// 			$scope.word.pluralNoun = randomWordArrays.pluralNounArray[i];
-		// 	}
-		// }
-
-		//assigning second noun to noun2 while making sure it's not same noun as noun(1)
-		// do {
-		// 	$scope.word.noun2 = calcRandomWord(nouns);
-			// calculate plural for noun 2 (making it the plural of the above generated noun)
-		// 	for (var i = 0; i < randomWordArrays.pluralNounArray.length; i++) {
-		// 		if($scope.word.noun2.charAt(0)==randomWordArrays.pluralNounArray[i].charAt(0) &&
-		// 			$scope.word.noun2.charAt(1)==randomWordArrays.pluralNounArray[i].charAt(1)	) {
-		// 			$scope.word.pluralNoun2 = randomWordArrays.pluralNounArray[i];
-		// 	}
-		// } } while ($scope.word.noun === $scope.word.noun2);
-
-		// console.log(getRandomMaleName());
-		// console.log(getRandomFemaleName());
-		// console.log(getRandomEmotion());
-		// console.log(getRandomVerb());
-		// console.log(getRandomSingularAnimal());
-		// console.log(getRandomPluralAnimal());
-		// console.log(getRandomAdjective());
-		// console.log(getRandomSingularNoun());
-		// console.log(getRandomPluralNoun());
-		// console.log(getRandomAnimalPair());
-		// console.log(getRandomNounPair());
-
 	}
 
 	$scope.genRanWord = function(wordToGen, numberOfWord) {
@@ -218,12 +154,6 @@ app.controller('mlCtrl', function($scope) {
 			$scope.word.properName = getRandomFemaleName();
 		}
 	}
-
-	// $scope.fillInBlankWords = function(word) {
-	// 	for (var word in $scope.word) {
-	// 		alert(word);
-	// 	}
-	// }
 
 	$scope.setGenderMale = function() {
 		$scope.gender = {

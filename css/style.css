@@ -1,5 +1,5 @@
 body {
-	background-color: #dee;
+	background-color: white;
 }
 
 .theView {
@@ -7,16 +7,33 @@ body {
 	margin: auto;
 }
 
+/*introduction to app-------------*/
+.introBox {
+	width: 60%;
+	min-height: 300px;
+	margin: auto;
+	padding: 5px;
+	border: solid black 2px;
+	border-radius: 5px;
+	background-color: #dee;
+	text-align: justify;
+}
+
+.hideIntroButton {
+	height: 100px;
+	width: 100%;
+	font-size: 36pt !important;
+}
+
 /*title and instructions-----------*/
 .title {
 	font-size: 36pt;
 	text-align: center;
-	text-shadow: 8px 8px 12px red;
+	text-shadow: 8px 8px 12px green;
 }
 
 .instructions {
 	font-size: 22pt;
-	/*background-color: #eed;*/
 	padding: 5px;
 	border-radius: 10px;
 	padding-left: 50px;
@@ -24,25 +41,16 @@ body {
 }
 
 /*word entry section---------------*/
-.wordEntry {
-	/*border: solid black 1px;*/
-	border-radius: 10px;
-}
 
 .wordEntry button {
 	font-size: 12pt;
 	margin: 15px;
 	margin-top: 10px;
-
 }
 
 .heroGenderTitle {
 	font-size: 24pt;
 }
-
-/*.inputBoxes {
-
-}*/
 
 .inputBox {
 	margin-left: 8px;
@@ -51,18 +59,16 @@ body {
 	min-height: 220px;
 	text-align: center;
 	width: 158px;
-	/*background-color: red;*/
 	display: inline-block;
 	border: 1px black solid;
+	border-radius: 5px;
+	box-shadow: 2px 2px 3px green;
 }
 
 .inputField {
 	font-size: 12pt;
 	width: 90%;
-	/*display: inline-block;*/
 	margin: 2px;
-	
-	/*border: 2px solid black;*/
 }
 
 .inputField.singleField {
@@ -71,7 +77,6 @@ body {
 
 /*stories---------------------------*/
 .stories {
-	/*height: 300px;*/
 	font-size: 24pt;
 	border: solid black 3px;
 	border-radius: 10px;
@@ -85,8 +90,6 @@ body {
 
 .fillerStory {
 	font-size: 24pt;
-	/*padding-left: 50px;
-	margin-left: 50px;*/
 }
 
 .completeStory {
@@ -94,15 +97,9 @@ body {
 }
 
 /*buttons---------------------------*/
-.buttonDivider {
-	/*background-color: red;*/
-	/*border: solid black 1px;*/
-}
 
 .showStoryButtons {
 	padding: 20px;
-	/*color: blue;*/
-	/*border: solid black 1px;*/
 }
 
 .showStoryButtons button {
@@ -112,8 +109,6 @@ body {
 .gameButtons {
 	min-height: 10px;
 	padding: 20px;
-	/*background-color: blue;*/
-	/*border: solid black 1px;*/
 }
 
 .gameButtons button {
@@ -122,12 +117,22 @@ body {
 
 .maleButton, .femaleButton {
 	font-size: 24pt !important;
-	background-color: #aca;
+	background-color: #aaccaa;
+}
+
+.maleButton:hover, .femaleButton:hover {
+	box-shadow: 2px 2px 3px green;
+	background-color: #abddaa;
 }
 
 .allRandomButton {
 	font-size: 24pt !important;
 	background-color: #aea;
+}
+
+.allRandomButton:hover {
+	box-shadow: 2px 2px 3px green;
+	background-color: #abddaa;
 }
 
 .ranButton {
@@ -154,8 +159,36 @@ body {
 }
 
 /*error messages--------------------*/
+
 .errorMessage {
 	color: red;
 	font-style: italic;
 	background-color: yellow;
+}
+
+/*footer-----------------------------*/
+
+.foot {
+	width: 100%;
+	background-color: green;
+	height: 108px;
+	margin-bottom: -30px;
+	color: white;
+}
+
+.foot h1 {
+	width: 200px;
+	padding-top: 10px;
+	margin-left: 20px;
+	margin-bottom: -30px;
+}
+
+.foot h1 {
+	display: inline-block;
+}
+
+.foot img {
+	height: 100px;
+	width: 100px;
+	margin-right: 50px;
 }
